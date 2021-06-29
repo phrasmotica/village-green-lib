@@ -1,6 +1,7 @@
 import { Feature } from "./Feature"
 import { Pile } from "./Pile"
 import { Award } from "./awards/Award"
+import { Card } from "./Card"
 
 /**
  * Represents a grid.
@@ -53,6 +54,22 @@ export class Grid {
      */
     getPilesInColumn(col: number) {
         return col < this.piles[0].length ? this.piles.map(r => r[col]) : []
+    }
+
+    /**
+     * Plays the given card on the pile at the given location.
+     */
+    playCard(card: Card, row: number, col: number) {
+        if (row < 0 || row >= this.piles.length) {
+            return false
+        }
+
+        if (col < 0 || col >= this.piles[0].length) {
+            return false
+        }
+
+        let pile = this.piles[row][col]
+        return pile.push(card)
     }
 
     /**
