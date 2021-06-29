@@ -19,7 +19,7 @@ export class Grid {
     /**
      * Returns an empty grid of the given width and height.
      */
-    static create(width: number, height: number) {
+    static create(width: number, height: number, pileFact: () => Pile) {
         if (width <= 0 || height <= 0) {
             throw "Grid cannot have non-positive width or height!"
         }
@@ -30,7 +30,7 @@ export class Grid {
             let row = []
 
             for (let j = 0; j < width; j++) {
-                row.push(new Pile([]))
+                row.push(pileFact())
             }
 
             piles.push(row)

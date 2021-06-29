@@ -26,17 +26,6 @@ export class Pile {
     }
 
     /**
-     * Removes the card on the top of the pile and returns it.
-     */
-    popCard() {
-        if (this.isEmpty()) {
-            return null
-        }
-
-        return this.cards.pop()!
-    }
-
-    /**
      * Returns the card on the top of the pile.
      */
     topCard() {
