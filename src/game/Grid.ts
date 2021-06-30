@@ -1,6 +1,7 @@
 import { Feature } from "./Feature"
 import { GreenCard } from "./GreenCard"
 import { Pile } from "./Pile"
+import { VillageCard } from "./VillageCard"
 import { Award } from "./awards/Award"
 
 /**
@@ -11,6 +12,7 @@ export class Grid {
      * Creates a new grid.
      */
     private constructor(
+        public villageCard: VillageCard,
         public piles: Pile[][],
         public rowAwards: (Award | null)[],
         public columnAwards: (Award | null)[],
@@ -19,7 +21,7 @@ export class Grid {
     /**
      * Returns an empty grid of the given width and height.
      */
-    static create(width: number, height: number, pileFact: () => Pile) {
+    static create(width: number, height: number, villageCard: VillageCard, pileFact: () => Pile) {
         if (width <= 0 || height <= 0) {
             throw "Grid cannot have non-positive width or height!"
         }
@@ -39,7 +41,7 @@ export class Grid {
         let rowAwards = piles.map(_ => null)
         let columnAwards = piles[0].map(_ => null)
 
-        return new Grid(piles, rowAwards, columnAwards)
+        return new Grid(villageCard, piles, rowAwards, columnAwards)
     }
 
     /**
@@ -73,6 +75,13 @@ export class Grid {
     }
 
     /**
+     * Flips the village card.
+     */
+    flipVillageCard() {
+        this.villageCard.isFlipped = true
+    }
+
+    /**
      * Returns the score for the grid.
      */
     getScore() {
@@ -100,6 +109,10 @@ export class Grid {
                 let pondCount = features.filter(f => f === Feature.Pond).length
                 score += pondCount * 2
             }
+        }
+
+        if (!this.villageCard.isFlipped) {
+            score += 1
         }
 
         return score
