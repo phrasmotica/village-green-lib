@@ -2,7 +2,7 @@ import { Feature } from "./cards/Feature"
 import { GreenCard } from "./cards/GreenCard"
 import { VillageCard } from "./cards/VillageCard"
 import { Pile } from "./Pile"
-import { Award } from "./awards/Award"
+import { AwardCard } from "./cards/AwardCard"
 
 /**
  * Represents a grid.
@@ -14,8 +14,8 @@ export class Grid {
     private constructor(
         public villageCard: VillageCard,
         public piles: Pile[][],
-        public rowAwards: (Award | null)[],
-        public columnAwards: (Award | null)[],
+        public rowAwards: (AwardCard | null)[],
+        public columnAwards: (AwardCard | null)[],
     ) { }
 
     /**
