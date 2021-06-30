@@ -1,7 +1,7 @@
 import { FeatureVariety } from "../../../../src/game/awards/criteria/FeatureVariety"
-import { Feature } from "../../../../src/game/Feature"
+import { Feature } from "../../../../src/game/cards/Feature"
 import { Pile } from "../../../../src/game/Pile"
-import { Tree } from "../../../../src/game/Tree"
+import { Tree } from "../../../../src/game/cards/Tree"
 import { featureCard, treeCard } from "../../../Util"
 
 describe("Feature variety", () => {

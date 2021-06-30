@@ -1,5 +1,5 @@
-import { Colour } from "../../Colour"
-import { Flower } from "../../Flower"
+import { Colour } from "../../cards/Colour"
+import { Flower } from "../../cards/Flower"
 import { Pile } from "../../Pile"
 import { ICriterion } from "./ICriterion"
 

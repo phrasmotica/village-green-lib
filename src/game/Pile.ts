@@ -1,5 +1,5 @@
-import { Feature } from "./Feature"
-import { GreenCard } from "./GreenCard"
+import { Feature } from "./cards/Feature"
+import { GreenCard } from "./cards/GreenCard"
 
 /**
  * Represents a pile of cards.

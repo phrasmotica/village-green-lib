@@ -1,5 +1,5 @@
-import { Feature } from "../../src/game/Feature"
-import { GreenCard } from "../../src/game/GreenCard"
+import { Feature } from "../../src/game/cards/Feature"
+import { GreenCard } from "../../src/game/cards/GreenCard"
 import { Grid } from "../../src/game/Grid"
 import { Pile } from "../../src/game/Pile"
 import { featureCard, isAny, mock, villageCard } from "../Util"

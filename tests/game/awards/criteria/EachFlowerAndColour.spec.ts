@@ -1,6 +1,6 @@
 import { EachFlowerAndColour } from "../../../../src/game/awards/criteria/EachFlowerAndColour"
-import { Colour } from "../../../../src/game/Colour"
-import { Flower } from "../../../../src/game/Flower"
+import { Colour } from "../../../../src/game/cards/Colour"
+import { Flower } from "../../../../src/game/cards/Flower"
 import { Pile } from "../../../../src/game/Pile"
 import { cardWith } from "../../../Util"
 

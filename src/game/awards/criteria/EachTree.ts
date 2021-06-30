@@ -1,5 +1,5 @@
 import { Pile } from "../../Pile"
-import { Tree } from "../../Tree"
+import { Tree } from "../../cards/Tree"
 import { ICriterion } from "./ICriterion"
 
 export class EachTree implements ICriterion {

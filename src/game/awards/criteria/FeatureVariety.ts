@@ -1,4 +1,4 @@
-import { Feature } from "../../Feature"
+import { Feature } from "../../cards/Feature"
 import { Pile } from "../../Pile"
 import { ICriterion } from "./ICriterion"
 

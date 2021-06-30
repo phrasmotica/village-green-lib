@@ -1,12 +1,12 @@
 import * as TypeMoq from "typemoq"
 
-import { Colour } from "../src/game/Colour"
-import { Feature } from "../src/game/Feature"
-import { FeatureCard } from "../src/game/FeatureCard"
-import { Flower } from "../src/game/Flower"
-import { Tree } from "../src/game/Tree"
-import { TreeCard } from "../src/game/TreeCard"
-import { VillageCard } from "../src/game/VillageCard"
+import { Colour } from "../src/game/cards/Colour"
+import { Feature } from "../src/game/cards/Feature"
+import { FeatureCard } from "../src/game/cards/FeatureCard"
+import { Flower } from "../src/game/cards/Flower"
+import { Tree } from "../src/game/cards/Tree"
+import { TreeCard } from "../src/game/cards/TreeCard"
+import { VillageCard } from "../src/game/cards/VillageCard"
 
 export const villageCard = () => new VillageCard("village")
 export const cardWith = (colour: Colour, flower: Flower) => new FeatureCard(colour, flower, Feature.Structure)

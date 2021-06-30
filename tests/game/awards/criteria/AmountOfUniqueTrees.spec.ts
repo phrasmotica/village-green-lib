@@ -1,6 +1,6 @@
 import { AmountOfUniqueTrees } from "../../../../src/game/awards/criteria/AmountOfUniqueTrees"
 import { Pile } from "../../../../src/game/Pile"
-import { Tree } from "../../../../src/game/Tree"
+import { Tree } from "../../../../src/game/cards/Tree"
 import { treeCard } from "../../../Util"
 
 describe("Amount of unique trees", () => {

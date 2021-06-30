@@ -1,9 +1,9 @@
-import { Card } from "./Card"
-import { Colour } from "./Colour"
-import { Flower } from "./Flower"
+import { Card } from "./cards/Card"
+import { Colour } from "./cards/Colour"
+import { Flower } from "./cards/Flower"
+import { FeatureCard } from "./cards/FeatureCard"
+import { Feature } from "./cards/Feature"
 import { Random } from "../util/Random"
-import { FeatureCard } from "./FeatureCard"
-import { Feature } from "./Feature"
 
 /**
  * Represents the deck.

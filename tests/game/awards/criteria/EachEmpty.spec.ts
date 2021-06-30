@@ -1,5 +1,5 @@
 import { EachEmpty } from "../../../../src/game/awards/criteria/EachEmpty"
-import { Feature } from "../../../../src/game/Feature"
+import { Feature } from "../../../../src/game/cards/Feature"
 import { Pile } from "../../../../src/game/Pile"
 import { featureCard } from "../../../Util"
 

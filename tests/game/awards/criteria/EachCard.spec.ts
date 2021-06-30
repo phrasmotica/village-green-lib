@@ -1,5 +1,5 @@
 import { EachCard } from "../../../../src/game/awards/criteria/EachCard"
-import { Feature } from "../../../../src/game/Feature"
+import { Feature } from "../../../../src/game/cards/Feature"
 import { Pile } from "../../../../src/game/Pile"
 import { featureCard } from "../../../Util"
 

@@ -1,7 +1,7 @@
-import { Feature } from "./Feature"
-import { GreenCard } from "./GreenCard"
+import { Feature } from "./cards/Feature"
+import { GreenCard } from "./cards/GreenCard"
+import { VillageCard } from "./cards/VillageCard"
 import { Pile } from "./Pile"
-import { VillageCard } from "./VillageCard"
 import { Award } from "./awards/Award"
 
 /**
