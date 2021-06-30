@@ -1,18 +1,18 @@
-import { Card } from "./Card"
 import { Feature } from "./Feature"
+import { GreenCard } from "./GreenCard"
 
 /**
  * Represents a pile of cards.
  */
 export class Pile {
     constructor(
-        public cards: Card[],
+        public cards: GreenCard[],
     ) { }
 
     /**
-     * Adds a card to the pile, if possible.
+     * Adds a green card to the pile, if possible.
      */
-    push(card: Card) {
+    push(card: GreenCard) {
         if (this.canBePlayed(card)) {
             this.cards.push(card)
             return true
@@ -37,9 +37,9 @@ export class Pile {
     }
 
     /**
-     * Returns whether the given card can be played on this pile.
+     * Returns whether the given green card can be played on this pile.
      */
-    canBePlayed(card: Card) {
+    canBePlayed(card: GreenCard) {
         return this.isEmpty() || this.topCard()!.getFeatures().includes(Feature.Lawn)
     }
 }

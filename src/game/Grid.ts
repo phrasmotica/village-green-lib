@@ -1,7 +1,7 @@
 import { Feature } from "./Feature"
+import { GreenCard } from "./GreenCard"
 import { Pile } from "./Pile"
 import { Award } from "./awards/Award"
-import { Card } from "./Card"
 
 /**
  * Represents a grid.
@@ -57,9 +57,9 @@ export class Grid {
     }
 
     /**
-     * Plays the given card on the pile at the given location.
+     * Plays the given green card on the pile at the given location.
      */
-    playCard(card: Card, row: number, col: number) {
+    playCard(card: GreenCard, row: number, col: number) {
         if (row < 0 || row >= this.piles.length) {
             return false
         }

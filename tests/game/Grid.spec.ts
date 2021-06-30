@@ -1,5 +1,5 @@
-import { Card } from "../../src/game/Card"
 import { Feature } from "../../src/game/Feature"
+import { GreenCard } from "../../src/game/GreenCard"
 import { Grid } from "../../src/game/Grid"
 import { Pile } from "../../src/game/Pile"
 import { featureCard, isAny, mock } from "../Util"
@@ -23,8 +23,8 @@ describe("Grid", () => {
     it("allows a card to be played on a pile", () => {
         // arrange
         let pile = mock<Pile>()
-        pile.setup(m => m.canBePlayed(isAny<Card>())).returns(() => true)
-        pile.setup(m => m.push(isAny<Card>())).returns(() => true)
+        pile.setup(m => m.canBePlayed(isAny<GreenCard>())).returns(() => true)
+        pile.setup(m => m.push(isAny<GreenCard>())).returns(() => true)
 
         let grid = Grid.create(1, 1, () => pile.object)
 
