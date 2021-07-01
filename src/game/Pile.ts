@@ -41,4 +41,11 @@ export class Pile {
     canBePlayed(card: GreenCard) {
         return this.isEmpty() || this.topCard()!.hasLawn()
     }
+
+    /**
+     * Clears the pile.
+     */
+    clear() {
+        this.cards = []
+    }
 }

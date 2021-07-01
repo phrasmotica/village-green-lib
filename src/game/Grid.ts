@@ -61,7 +61,7 @@ export class Grid {
     /**
      * Plays the given green card on the pile at the given location.
      */
-    playCard(card: GreenCard, row: number, col: number) {
+    playGreenCard(card: GreenCard, row: number, col: number) {
         if (row < 0 || row >= this.piles.length) {
             return false
         }
@@ -72,6 +72,20 @@ export class Grid {
 
         let pile = this.piles[row][col]
         return pile.push(card)
+    }
+
+    /**
+     * Plays the given award card in the given location.
+     */
+    playAwardCard(card: AwardCard, onColumn: boolean, location: number) {
+        let awardSlots = onColumn ? this.columnAwards : this.rowAwards
+
+        if (location < 0 || location >= awardSlots.length) {
+            return false
+        }
+
+        awardSlots[location] = card
+        return true
     }
 
     /**
@@ -116,5 +130,15 @@ export class Grid {
         }
 
         return score
+    }
+
+    /**
+     * Clears the grid.
+     */
+    clear() {
+        this.rowAwards = this.piles.map(_ => null)
+        this.columnAwards = this.piles[0].map(_ => null)
+
+        this.piles.flatMap(row => row).forEach(pile => pile.clear())
     }
 }

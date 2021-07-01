@@ -65,4 +65,15 @@ describe("Pile", () => {
         // act and assert
         expect(pile.topCard()).toBeNull()
     })
+
+    it("can be cleared", () => {
+        // arrange
+        let pile = new Pile([lawnCard()])
+
+        // act
+        pile.clear()
+
+        // assert
+        expect(pile.isEmpty()).toBe(true)
+    })
 })
