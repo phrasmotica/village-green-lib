@@ -62,6 +62,14 @@ describe("Amount of unique trees", () => {
             ],
             expectedReward: 6,
         },
+        {
+            piles: [
+                new Pile([treeCard([Tree.Birch])]),
+                new Pile([treeCard([Tree.Birch, Tree.Oak])]),
+                new Pile([treeCard([Tree.Willow, "Elm" as Tree])]),
+            ],
+            expectedReward: 0,
+        },
     ]
 
     testCases.forEach(t => {
