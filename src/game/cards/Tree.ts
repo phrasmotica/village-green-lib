@@ -1,5 +1,5 @@
 export enum Tree {
-    Birch,
-    Oak,
-    Willow
+    Birch = "Birch",
+    Oak = "Oak",
+    Willow = "Willow",
 }
