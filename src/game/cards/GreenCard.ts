@@ -5,16 +5,12 @@ import { Flower } from "./Flower"
 import { Tree } from "./Tree"
 
 /**
- * Represents a card.
+ * Represents a green card.
  */
 export abstract class GreenCard extends Card {
-    constructor(
-        public colour: Colour,
-        public flower: Flower,
-    ) {
-        super()
-    }
-
+    abstract getColour(): Colour | null
+    abstract getFlower(): Flower | null
     abstract getFeatures(): Feature[]
     abstract getTrees(): Tree[]
+    abstract hasLawn(): boolean
 }

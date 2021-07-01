@@ -1,5 +1,5 @@
 export enum Flower {
-    Lily,
-    Petunia,
-    Rose,
+    Lily = "Lily",
+    Petunia = "Petunia",
+    Rose = "Rose",
 }

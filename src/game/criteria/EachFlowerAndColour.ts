@@ -12,7 +12,7 @@ export class EachFlowerAndColour implements ICriterion {
 
     getReward(piles: Pile[]) {
         let cards = piles.filter(p => !p.isEmpty()).map(p => p.topCard()!)
-        let matchingCards = cards.filter(c => c.flower === this.flower && c.colour === this.colour).length
+        let matchingCards = cards.filter(c => c.getFlower() === this.flower && c.getColour() === this.colour).length
         return matchingCards * this.reward
     }
 }

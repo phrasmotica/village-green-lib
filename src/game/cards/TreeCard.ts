@@ -1,12 +1,12 @@
 import { Colour } from "./Colour"
 import { Flower } from "./Flower"
-import { GreenCard } from "./GreenCard"
+import { FlowerCard } from "./FlowerCard"
 import { Tree } from "./Tree"
 
 /**
  * Represents a card with trees.
  */
-export class TreeCard extends GreenCard {
+export class TreeCard extends FlowerCard {
     constructor(
         colour: Colour,
         flower: Flower,

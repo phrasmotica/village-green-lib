@@ -9,7 +9,7 @@ export class HasUniqueFlowers implements ICriterion {
 
     getReward(piles: Pile[]) {
         let cards = piles.filter(p => !p.isEmpty()).map(p => p.topCard()!)
-        let numberOfUniqueFlowers = [...new Set(cards.map(c => c.flower))].length
+        let numberOfUniqueFlowers = [...new Set(cards.map(c => c.getFlower()).filter(f => f !== null))].length
         return numberOfUniqueFlowers >= this.amount ? this.reward : 0
     }
 }

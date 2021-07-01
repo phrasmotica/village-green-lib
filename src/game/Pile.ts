@@ -1,4 +1,3 @@
-import { Feature } from "./cards/Feature"
 import { GreenCard } from "./cards/GreenCard"
 
 /**
@@ -40,6 +39,6 @@ export class Pile {
      * Returns whether the given green card can be played on this pile.
      */
     canBePlayed(card: GreenCard) {
-        return this.isEmpty() || this.topCard()!.getFeatures().includes(Feature.Lawn)
+        return this.isEmpty() || this.topCard()!.hasLawn()
     }
 }

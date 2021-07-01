@@ -4,12 +4,14 @@ import { Colour } from "../src/game/cards/Colour"
 import { Feature } from "../src/game/cards/Feature"
 import { FeatureCard } from "../src/game/cards/FeatureCard"
 import { Flower } from "../src/game/cards/Flower"
+import { LawnCard } from "../src/game/cards/LawnCard"
 import { Tree } from "../src/game/cards/Tree"
 import { TreeCard } from "../src/game/cards/TreeCard"
 import { VillageCard } from "../src/game/cards/VillageCard"
 
 export const villageCard = () => new VillageCard("village")
 export const cardWith = (colour: Colour, flower: Flower) => new FeatureCard(colour, flower, Feature.Structure)
+export const lawnCard = () => new LawnCard()
 export const featureCard = (feature: Feature) => new FeatureCard(Colour.Red, Flower.Lily, feature)
 export const treeCard = (trees: Tree[]) => new TreeCard(Colour.Red, Flower.Lily, trees)
 

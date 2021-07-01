@@ -1,7 +1,7 @@
 import { Feature } from "../../src/game/cards/Feature"
 import { Pile } from "../../src/game/Pile"
 import { Tree } from "../../src/game/cards/Tree"
-import { featureCard, treeCard } from "../Util"
+import { featureCard, lawnCard, treeCard } from "../Util"
 
 describe("Pile", () => {
     it("allows a card to be played when no cards are present", () => {
@@ -17,7 +17,7 @@ describe("Pile", () => {
 
     it("allows a card to be played when a lawn card is present", () => {
         // arrange
-        let pile = new Pile([featureCard(Feature.Lawn)])
+        let pile = new Pile([lawnCard()])
 
         // act
         let success = pile.push(featureCard(Feature.Structure))
@@ -49,7 +49,7 @@ describe("Pile", () => {
 
     it("returns the top card correctly", () => {
         // arrange
-        let card1 = featureCard(Feature.Lawn)
+        let card1 = lawnCard()
         let card2 = treeCard([Tree.Birch])
 
         let pile = new Pile([card1, card2])

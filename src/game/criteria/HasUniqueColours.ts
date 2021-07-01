@@ -9,7 +9,7 @@ export class HasUniqueColours implements ICriterion {
 
     getReward(piles: Pile[]) {
         let cards = piles.filter(p => !p.isEmpty()).map(p => p.topCard()!)
-        let numberOfUniqueColours = [...new Set(cards.map(c => c.colour))].length
+        let numberOfUniqueColours = [...new Set(cards.map(c => c.getColour()).filter(c => c !== null))].length
         return numberOfUniqueColours === this.amount ? this.reward : 0
     }
 }
