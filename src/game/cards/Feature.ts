@@ -1,4 +1,4 @@
 export enum Feature {
-    Structure,
-    Pond,
+    Structure = "Structure",
+    Pond = "Pond",
 }
