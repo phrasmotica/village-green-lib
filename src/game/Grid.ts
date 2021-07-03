@@ -104,8 +104,12 @@ export class Grid {
         }
 
         let award = this.rowAwards[row]
+        if (award === null) {
+            return 0
+        }
+
         let pilesInRow = this.getPilesInRow(row)
-        return award?.getReward(pilesInRow) ?? 0
+        return award.getReward(pilesInRow)
     }
 
     /**
@@ -117,8 +121,12 @@ export class Grid {
         }
 
         let award = this.columnAwards[column]
+        if (award === null) {
+            return 0
+        }
+
         let pilesInColumn = this.getPilesInColumn(column)
-        return award?.getReward(pilesInColumn) ?? 0
+        return award.getReward(pilesInColumn)
     }
 
     /**
