@@ -96,25 +96,43 @@ export class Grid {
     }
 
     /**
+     * Returns the score for the given row.
+     */
+    getRowScore(row: number) {
+        if (row < 0 || row >= this.piles.length) {
+            throw `Row ${row} is out of range!`
+        }
+
+        let award = this.rowAwards[row]
+        let pilesInRow = this.getPilesInRow(row)
+        return award?.getReward(pilesInRow) ?? 0
+    }
+
+    /**
+     * Returns the score for the given column.
+     */
+    getColumnScore(column: number) {
+        if (column < 0 || column >= this.piles[0].length) {
+            throw `Column ${column} is out of range!`
+        }
+
+        let award = this.columnAwards[column]
+        let pilesInColumn = this.getPilesInColumn(column)
+        return award?.getReward(pilesInColumn) ?? 0
+    }
+
+    /**
      * Returns the score for the grid.
      */
     getScore() {
         let score = 0
 
         for (let i = 0; i < this.piles.length; i++) {
-            let award = this.rowAwards[i]
-            if (award !== null) {
-                let pilesInRow = this.getPilesInRow(i)
-                score += award.getReward(pilesInRow)
-            }
+            score += this.getRowScore(i)
         }
 
         for (let i = 0; i < this.piles[0].length; i++) {
-            let award = this.columnAwards[i]
-            if (award !== null) {
-                let pilesInColumn = this.getPilesInColumn(i)
-                score += award.getReward(pilesInColumn)
-            }
+            score += this.getColumnScore(i)
         }
 
         for (let pile of this.piles.flatMap(r => r)) {
