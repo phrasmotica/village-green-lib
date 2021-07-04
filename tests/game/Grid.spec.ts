@@ -1,9 +1,11 @@
 import { AwardCard } from "../../src/game/cards/AwardCard"
+import { Colour } from "../../src/game/cards/Colour"
 import { Feature } from "../../src/game/cards/Feature"
+import { Flower } from "../../src/game/cards/Flower"
 import { GreenCard } from "../../src/game/cards/GreenCard"
 import { Grid } from "../../src/game/Grid"
 import { Pile } from "../../src/game/Pile"
-import { awardCard, featureCard, isAny, mock, pile, villageCard } from "../Util"
+import { awardCard, cardWith, featureCard, isAny, lawnCard, mock, pile, villageCard } from "../Util"
 
 describe("Grid", () => {
     let sizes = [0, -2]
@@ -53,6 +55,150 @@ describe("Grid", () => {
 
             // assert
             expect(success).toBe(false)
+        })
+    })
+
+    it("allows a green card to be played on a pile with an empty pile to it", () => {
+        // arrange
+        let grid = Grid.create(2, 1, villageCard(), pile)
+
+        // act
+        let success = grid.playGreenCard(cardWith(Colour.Red, Flower.Petunia), 0, 1)
+
+        // assert
+        expect(success).toBe(true)
+    })
+
+    it("allows a green card to be played on a pile with a lawn next to it", () => {
+        // arrange
+        let grid = Grid.create(2, 1, villageCard(), pile)
+        grid.playGreenCard(lawnCard(), 0, 0)
+
+        // act
+        let success = grid.playGreenCard(cardWith(Colour.Red, Flower.Petunia), 0, 1)
+
+        // assert
+        expect(success).toBe(true)
+    })
+
+    it("allows a green card to be played on a pile with the same flower next to it", () => {
+        // arrange
+        let grid = Grid.create(2, 1, villageCard(), pile)
+        grid.playGreenCard(cardWith(Colour.Red, Flower.Petunia), 0, 0)
+
+        // act
+        let success = grid.playGreenCard(cardWith(Colour.Yellow, Flower.Petunia), 0, 1)
+
+        // assert
+        expect(success).toBe(true)
+    })
+
+    it("allows a green card to be played on a pile with the same colour next to it", () => {
+        // arrange
+        let grid = Grid.create(2, 1, villageCard(), pile)
+        grid.playGreenCard(cardWith(Colour.Red, Flower.Petunia), 0, 0)
+
+        // act
+        let success = grid.playGreenCard(cardWith(Colour.Red, Flower.Rose), 0, 1)
+
+        // assert
+        expect(success).toBe(true)
+    })
+
+    it("prevents a green card from being played on a pile with a different flower and colour next to it", () => {
+        // arrange
+        let grid = Grid.create(2, 1, villageCard(), pile)
+        grid.playGreenCard(cardWith(Colour.Blue, Flower.Lily), 0, 0)
+
+        // act
+        let success = grid.playGreenCard(cardWith(Colour.Red, Flower.Petunia), 0, 1)
+
+        // assert
+        expect(success).toBe(false)
+    })
+
+    let adjacentPilesCases = [
+        {
+            pile: [0, 0],
+            expected: [
+                [1, 0],
+                [0, 1],
+            ],
+        },
+        {
+            pile: [0, 1],
+            expected: [
+                [0, 0],
+                [0, 2],
+                [1, 1],
+            ],
+        },
+        {
+            pile: [0, 2],
+            expected: [
+                [0, 1],
+                [1, 2],
+            ],
+        },
+        {
+            pile: [1, 0],
+            expected: [
+                [1, 1],
+                [0, 0],
+                [2, 0],
+            ],
+        },
+        {
+            pile: [1, 1],
+            expected: [
+                [1, 0],
+                [1, 2],
+                [0, 1],
+                [2, 1],
+            ],
+        },
+        {
+            pile: [1, 2],
+            expected: [
+                [0, 2],
+                [2, 2],
+                [1, 1],
+            ],
+        },
+        {
+            pile: [2, 0],
+            expected: [
+                [1, 0],
+                [2, 1],
+            ],
+        },
+        {
+            pile: [2, 1],
+            expected: [
+                [2, 0],
+                [2, 2],
+                [1, 1],
+            ],
+        },
+        {
+            pile: [2, 2],
+            expected: [
+                [1, 2],
+                [2, 1],
+            ],
+        },
+    ]
+
+    adjacentPilesCases.forEach(c => {
+        it("returns the correct adjacent piles", () => {
+            // arrange
+            let grid = Grid.create(3, 3, villageCard(), pile)
+
+            // act
+            let adjacentPileLocations = grid.getAdjacentPileLocations(c.pile[0], c.pile[1])
+
+            // assert
+            expect(adjacentPileLocations.sort()).toStrictEqual(c.expected.sort())
         })
     })
 

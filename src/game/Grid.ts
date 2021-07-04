@@ -70,8 +70,47 @@ export class Grid {
             return false
         }
 
+        if (!this.canBePlayed(card, row, col)) {
+            return false
+        }
+
         let pile = this.piles[row][col]
         return pile.push(card)
+    }
+
+    /**
+     * Returns whether the given green card can be played on the pile at the
+     * given location.
+     */
+    canBePlayed(card: GreenCard, row: number, col: number) {
+        let adjacentPileLocations = this.getAdjacentPileLocations(row, col)
+        let adjacentPiles = adjacentPileLocations.map(l => this.piles[l[0]][l[1]])
+        return adjacentPiles.every(p => {
+            if (p.isEmpty()) {
+                return true
+            }
+
+            // every adjacent pile must be empty, be a lawn, have a matching
+            // colour or a matching flower
+            let topCard = p.topCard()!
+            return topCard.hasLawn()
+                || topCard.getColour() === card.getColour()
+                || topCard.getFlower() === card.getFlower()
+        })
+    }
+
+    /**
+     * Returns the piles adjacent to the pile at the given location.
+     */
+    getAdjacentPileLocations(row: number, col: number) {
+        return [
+            [row - 1, col],
+            [row + 1, col],
+            [row, col - 1],
+            [row, col + 1],
+        ]
+        .filter(l => l[0] >= 0 && l[0] < this.piles.length)
+        .filter(l => l[1] >= 0 && l[1] < this.piles[0].length) as [number, number][]
     }
 
     /**
