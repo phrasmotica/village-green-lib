@@ -10,4 +10,8 @@ export class EachCard implements ICriterion {
         let matchingPiles = piles.filter(p => !p.isEmpty()).length
         return matchingPiles * this.reward
     }
+
+    getDescription() {
+        return `Awards ${this.reward} points for each card`
+    }
 }

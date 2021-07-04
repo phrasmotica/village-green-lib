@@ -13,4 +13,8 @@ export class EachTree implements ICriterion {
         let matchingTrees = cards.flatMap(c => c.getTrees()).filter(t => t === this.tree).length
         return matchingTrees * this.reward
     }
+
+    getDescription() {
+        return `Awards ${this.reward} points for each ${this.tree} tree`
+    }
 }

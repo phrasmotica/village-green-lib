@@ -13,4 +13,8 @@ export class EachFeature implements ICriterion {
         let amount = cards.flatMap(c => c.getFeatures()).filter(f => f === this.feature).length
         return amount * this.reward
     }
+
+    getDescription() {
+        return `Awards ${this.reward} points for each ${this.feature}`
+    }
 }

@@ -11,4 +11,8 @@ export class EachLawn implements ICriterion {
         let amount = cards.filter(c => c.hasLawn()).length
         return amount * this.reward
     }
+
+    getDescription() {
+        return `Awards ${this.reward} points for each Lawn`
+    }
 }

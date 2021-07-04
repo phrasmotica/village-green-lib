@@ -13,4 +13,8 @@ export class EachColour implements ICriterion {
         let matchingCards = cards.filter(c => c.getColour() === this.colour).length
         return matchingCards * this.reward
     }
+
+    getDescription() {
+        return `Awards ${this.reward} points for each ${this.colour} flower`
+    }
 }

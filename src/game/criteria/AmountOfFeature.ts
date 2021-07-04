@@ -18,4 +18,17 @@ export class AmountOfFeature implements ICriterion {
 
         return 0
     }
+
+    getDescription() {
+        let description = `Awards points for the number of ${this.feature}s:`
+        this.rewards.forEach(r => {
+            let featureStr = r[0] === 1 ? this.feature : `${this.feature}s`
+            let pointStr = r[1] === 1 ? "point" : "points"
+            description += `\n${r[0]} ${featureStr} => ${r[1]} ${pointStr}`
+        })
+
+        description += "\notherwise 0 points"
+
+        return description
+    }
 }

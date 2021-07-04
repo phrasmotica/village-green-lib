@@ -24,4 +24,14 @@ export class FeatureVariety implements ICriterion {
 
         return 0
     }
+
+    getDescription() {
+        let description = `Awards ${this.reward} points for having all of the following:`
+        description += "\n1 structure"
+        description += "\n1 tree"
+        description += "\n1 pond OR 1 empty space"
+        description += "\notherwise 0 points"
+
+        return description
+    }
 }

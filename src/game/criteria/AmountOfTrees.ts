@@ -16,4 +16,17 @@ export class AmountOfTrees implements ICriterion {
 
         return 0
     }
+
+    getDescription() {
+        let description = "Awards points for the number of trees:"
+        this.rewards.forEach(r => {
+            let treeStr = r[0] === 1 ? "tree" : "trees"
+            let pointStr = r[1] === 1 ? "point" : "points"
+            description += `\n${r[0]} ${treeStr} => ${r[1]} ${pointStr}`
+        })
+
+        description += "\notherwise 0 points"
+
+        return description
+    }
 }

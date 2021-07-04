@@ -12,4 +12,8 @@ export class HasUniqueColours implements ICriterion {
         let numberOfUniqueColours = [...new Set(cards.map(c => c.getColour()).filter(c => c !== null))].length
         return numberOfUniqueColours === this.amount ? this.reward : 0
     }
+
+    getDescription() {
+        return `Awards ${this.reward} points for having ${this.amount} unique colours of flower`
+    }
 }

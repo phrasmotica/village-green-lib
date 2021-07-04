@@ -15,4 +15,8 @@ export class AmountOfGroupsOfTree implements ICriterion {
         let amountOfGroups = Math.floor(amount / this.groupSize)
         return amountOfGroups * this.reward
     }
+
+    getDescription() {
+        return `Awards ${this.reward} points for every ${this.groupSize} ${this.tree} trees`
+    }
 }

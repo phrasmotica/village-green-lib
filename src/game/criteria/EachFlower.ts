@@ -13,4 +13,8 @@ export class EachFlower implements ICriterion {
         let matchingCards = cards.filter(c => c.getFlower() === this.flower).length
         return matchingCards * this.reward
     }
+
+    getDescription() {
+        return `Awards ${this.reward} points for each ${this.flower}`
+    }
 }

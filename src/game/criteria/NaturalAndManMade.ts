@@ -27,4 +27,14 @@ export class NaturalAndManMade implements ICriterion {
 
         return 0
     }
+
+    getDescription() {
+        let description = "Awards points as follows:"
+        description += "\n1 structure and 0 trees => -2 points"
+        description += "\n1 structure and 2 trees => 4 points"
+        description += "\n2 structures and 2 trees => 6 points"
+        description += "\notherwise 0 points"
+
+        return description
+    }
 }
