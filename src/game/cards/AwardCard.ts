@@ -14,4 +14,10 @@ export class AwardCard extends Card {
         return this.criteria.map(cr => cr.getReward(piles))
                             .reduce((a, b) => a + b)
     }
+
+    getDescription() {
+        return this.criteria.map(cr => cr.getDescription())
+                            .map((d, i) => `${i + 1}. ${d}`)
+                            .reduce((a, b) => a + "\n\n" + b)
+    }
 }
