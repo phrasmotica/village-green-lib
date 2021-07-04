@@ -1,4 +1,5 @@
 import { Pile } from "../Pile"
+import { Description } from "./Description"
 import { ICriterion } from "./ICriterion"
 
 export class EachLawn implements ICriterion {
@@ -13,6 +14,6 @@ export class EachLawn implements ICriterion {
     }
 
     getDescription() {
-        return `Awards ${this.reward} points for each Lawn`
+        return new Description(`Awards ${this.reward} points for each lawn`)
     }
 }

@@ -1,5 +1,6 @@
 import { Feature } from "../cards/Feature"
 import { Pile } from "../Pile"
+import { Description } from "./Description"
 import { ICriterion } from "./ICriterion"
 
 export class FeatureVariety implements ICriterion {
@@ -26,12 +27,16 @@ export class FeatureVariety implements ICriterion {
     }
 
     getDescription() {
-        let description = `Awards ${this.reward} points for having all of the following:`
-        description += "\n1 structure"
-        description += "\n1 tree"
-        description += "\n1 pond OR 1 empty space"
-        description += "\notherwise 0 points"
+        let text = `Awards ${this.reward} points for having all of the following`
 
-        return description
+        let details = [
+            "1 structure",
+            "1 tree",
+            "1 pond OR 1 empty space",
+        ]
+
+        let ending = "otherwise awards 0 points"
+
+        return new Description(text, details, ending)
     }
 }

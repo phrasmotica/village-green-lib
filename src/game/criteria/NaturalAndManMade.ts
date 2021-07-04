@@ -1,5 +1,6 @@
 import { Feature } from "../cards/Feature"
 import { Pile } from "../Pile"
+import { Description } from "./Description"
 import { ICriterion } from "./ICriterion"
 
 export class NaturalAndManMade implements ICriterion {
@@ -29,12 +30,16 @@ export class NaturalAndManMade implements ICriterion {
     }
 
     getDescription() {
-        let description = "Awards points as follows:"
-        description += "\n1 structure and 0 trees => -2 points"
-        description += "\n1 structure and 2 trees => 4 points"
-        description += "\n2 structures and 2 trees => 6 points"
-        description += "\notherwise 0 points"
+        let text = "Awards points as follows"
 
-        return description
+        let details = [
+            "1 structure and 0 trees => -2 points",
+            "1 structure and 2 trees => 4 points",
+            "2 structures and 2 trees => 6 points",
+            "otherwise => 0 points",
+        ]
+
+
+        return new Description(text, details)
     }
 }

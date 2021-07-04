@@ -1,5 +1,6 @@
 import { Feature } from "../cards/Feature"
 import { Pile } from "../Pile"
+import { Description } from "./Description"
 import { ICriterion } from "./ICriterion"
 
 export class AmountOfGroupsOfFeature implements ICriterion {
@@ -17,6 +18,6 @@ export class AmountOfGroupsOfFeature implements ICriterion {
     }
 
     getDescription() {
-        return `Awards ${this.reward} points for every ${this.groupSize} ${this.feature}s`
+        return new Description(`Awards ${this.reward} points for every ${this.groupSize} ${this.feature}s`)
     }
 }

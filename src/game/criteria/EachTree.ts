@@ -1,6 +1,7 @@
 import { Pile } from "../Pile"
 import { Tree } from "../cards/Tree"
 import { ICriterion } from "./ICriterion"
+import { Description } from "./Description"
 
 export class EachTree implements ICriterion {
     constructor(
@@ -15,6 +16,6 @@ export class EachTree implements ICriterion {
     }
 
     getDescription() {
-        return `Awards ${this.reward} points for each ${this.tree} tree`
+        return new Description(`Awards ${this.reward} points for each ${this.tree} tree`)
     }
 }

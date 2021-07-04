@@ -1,5 +1,6 @@
 import { Tree } from "../cards/Tree"
 import { Pile } from "../Pile"
+import { Description } from "./Description"
 import { ICriterion } from "./ICriterion"
 
 export class AmountOfGroupsOfTree implements ICriterion {
@@ -17,6 +18,6 @@ export class AmountOfGroupsOfTree implements ICriterion {
     }
 
     getDescription() {
-        return `Awards ${this.reward} points for every ${this.groupSize} ${this.tree} trees`
+        return new Description(`Awards ${this.reward} points for every ${this.groupSize} ${this.tree} trees`)
     }
 }

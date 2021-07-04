@@ -1,4 +1,5 @@
 import { Pile } from "../Pile"
+import { Description } from "./Description"
 import { ICriterion } from "./ICriterion"
 
 export class AmountOfTrees implements ICriterion {
@@ -18,15 +19,16 @@ export class AmountOfTrees implements ICriterion {
     }
 
     getDescription() {
-        let description = "Awards points for the number of trees:"
-        this.rewards.forEach(r => {
+        let text = "Awards points for the number of trees"
+
+        let details = this.rewards.map(r => {
             let treeStr = r[0] === 1 ? "tree" : "trees"
             let pointStr = r[1] === 1 ? "point" : "points"
-            description += `\n${r[0]} ${treeStr} => ${r[1]} ${pointStr}`
+            return `${r[0]} ${treeStr} => ${r[1]} ${pointStr}`
         })
 
-        description += "\notherwise 0 points"
+        details.push("otherwise => 0 points")
 
-        return description
+        return new Description(text, details)
     }
 }

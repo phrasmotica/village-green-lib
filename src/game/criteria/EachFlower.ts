@@ -1,5 +1,6 @@
 import { Flower } from "../cards/Flower"
 import { Pile } from "../Pile"
+import { Description } from "./Description"
 import { ICriterion } from "./ICriterion"
 
 export class EachFlower implements ICriterion {
@@ -15,6 +16,6 @@ export class EachFlower implements ICriterion {
     }
 
     getDescription() {
-        return `Awards ${this.reward} points for each ${this.flower}`
+        return new Description(`Awards ${this.reward} points for each ${this.flower}`)
     }
 }

@@ -1,4 +1,5 @@
 import { Pile } from "../Pile"
+import { Description } from "./Description"
 import { ICriterion } from "./ICriterion"
 
 export class EachEmpty implements ICriterion {
@@ -12,6 +13,6 @@ export class EachEmpty implements ICriterion {
     }
 
     getDescription() {
-        return `Awards ${this.reward} points for each empty space`
+        return new Description(`Awards ${this.reward} points for each empty space`)
     }
 }

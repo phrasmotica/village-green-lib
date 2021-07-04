@@ -1,4 +1,5 @@
 import { Pile } from "../Pile"
+import { Description } from "./Description"
 import { ICriterion } from "./ICriterion"
 
 export class AmountOfLawns implements ICriterion {
@@ -18,15 +19,16 @@ export class AmountOfLawns implements ICriterion {
     }
 
     getDescription() {
-        let description = `Awards points for the number of lawns:`
-        this.rewards.forEach(r => {
+        let text = "Awards points for the number of lawns"
+
+        let details = this.rewards.map(r => {
             let lawnStr = r[0] === 1 ? "lawn" : "lawns"
             let pointStr = r[1] === 1 ? "point" : "points"
-            description += `\n${r[0]} ${lawnStr} => ${r[1]} ${pointStr}`
+            return `${r[0]} ${lawnStr} => ${r[1]} ${pointStr}`
         })
 
-        description += "\notherwise 0 points"
+        details.push("otherwise => 0 points")
 
-        return description
+        return new Description(text, details)
     }
 }
