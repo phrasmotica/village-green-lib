@@ -13,6 +13,7 @@ export class EachEmpty implements ICriterion {
     }
 
     getDescription() {
-        return new Description(`Awards ${this.reward} points for each empty space`)
+        let pointStr = this.reward === 1 ? "point" : "points"
+        return new Description(`Awards ${this.reward} ${pointStr} for each empty space`)
     }
 }

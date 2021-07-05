@@ -13,6 +13,7 @@ export class EachCard implements ICriterion {
     }
 
     getDescription() {
-        return new Description(`Awards ${this.reward} points for each card`)
+        let pointStr = this.reward === 1 ? "point" : "points"
+        return new Description(`Awards ${this.reward} ${pointStr} for each card`)
     }
 }

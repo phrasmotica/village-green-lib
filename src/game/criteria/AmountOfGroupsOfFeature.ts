@@ -18,6 +18,8 @@ export class AmountOfGroupsOfFeature implements ICriterion {
     }
 
     getDescription() {
-        return new Description(`Awards ${this.reward} points for every ${this.groupSize} ${this.feature}s`)
+        let featureName = this.feature.toLowerCase()
+        let pointStr = this.reward === 1 ? "point" : "points"
+        return new Description(`Awards ${this.reward} ${pointStr} for every ${this.groupSize} ${featureName}s`)
     }
 }

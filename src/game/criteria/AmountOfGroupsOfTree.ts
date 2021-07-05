@@ -18,6 +18,8 @@ export class AmountOfGroupsOfTree implements ICriterion {
     }
 
     getDescription() {
-        return new Description(`Awards ${this.reward} points for every ${this.groupSize} ${this.tree} trees`)
+        let treeName = this.tree.toLowerCase()
+        let pointStr = this.reward === 1 ? "point" : "points"
+        return new Description(`Awards ${this.reward} ${pointStr} for every ${this.groupSize} ${treeName} trees`)
     }
 }

@@ -21,10 +21,11 @@ export class AmountOfFeature implements ICriterion {
     }
 
     getDescription() {
-        let text = `Awards points for the number of ${this.feature}s`
+        let featureName = this.feature.toLowerCase()
+        let text = `Awards points for the number of ${featureName}s`
 
         let details = this.rewards.map(r => {
-            let featureStr = r[0] === 1 ? this.feature : `${this.feature}s`
+            let featureStr = r[0] === 1 ? featureName : `${featureName}s`
             let pointStr = r[1] === 1 ? "point" : "points"
             return `${r[0]} ${featureStr} => ${r[1]} ${pointStr}`
         })

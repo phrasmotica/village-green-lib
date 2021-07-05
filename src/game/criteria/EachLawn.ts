@@ -14,6 +14,7 @@ export class EachLawn implements ICriterion {
     }
 
     getDescription() {
-        return new Description(`Awards ${this.reward} points for each lawn`)
+        let pointStr = this.reward === 1 ? "point" : "points"
+        return new Description(`Awards ${this.reward} ${pointStr} for each lawn`)
     }
 }

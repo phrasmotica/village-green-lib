@@ -16,6 +16,8 @@ export class EachFeature implements ICriterion {
     }
 
     getDescription() {
-        return new Description(`Awards ${this.reward} points for each ${this.feature}`)
+        let featureName = this.feature.toLowerCase()
+        let pointStr = this.reward === 1 ? "point" : "points"
+        return new Description(`Awards ${this.reward} ${pointStr} for each ${featureName}`)
     }
 }

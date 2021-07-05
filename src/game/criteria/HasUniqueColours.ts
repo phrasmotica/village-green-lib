@@ -15,6 +15,7 @@ export class HasUniqueColours implements ICriterion {
     }
 
     getDescription() {
-        return new Description(`Awards ${this.reward} points for having ${this.amount} unique colours of flower`)
+        let pointStr = this.reward === 1 ? "point" : "points"
+        return new Description(`Awards ${this.reward} ${pointStr} for having ${this.amount} unique colours of flower`)
     }
 }

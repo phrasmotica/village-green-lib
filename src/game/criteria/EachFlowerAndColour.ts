@@ -18,6 +18,9 @@ export class EachFlowerAndColour implements ICriterion {
     }
 
     getDescription() {
-        return new Description(`Awards ${this.reward} points for each ${this.colour} ${this.flower}`)
+        let pointStr = this.reward === 1 ? "point" : "points"
+        let colourName = this.colour.toLowerCase()
+        let flowerName = this.flower.toLowerCase()
+        return new Description(`Awards ${this.reward} ${pointStr} for each ${colourName} ${flowerName}`)
     }
 }

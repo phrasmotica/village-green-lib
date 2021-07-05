@@ -27,7 +27,8 @@ export class FeatureVariety implements ICriterion {
     }
 
     getDescription() {
-        let text = `Awards ${this.reward} points for having all of the following`
+        let pointStr = this.reward === 1 ? "point" : "points"
+        let text = `Awards ${this.reward} ${pointStr} for having all of the following`
 
         let details = [
             "1 structure",

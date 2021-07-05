@@ -16,6 +16,8 @@ export class EachTree implements ICriterion {
     }
 
     getDescription() {
-        return new Description(`Awards ${this.reward} points for each ${this.tree} tree`)
+        let treeName = this.tree.toLowerCase()
+        let pointStr = this.reward === 1 ? "point" : "points"
+        return new Description(`Awards ${this.reward} ${pointStr} for each ${treeName} tree`)
     }
 }
